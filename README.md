@@ -1,4 +1,4 @@
-# 📚 P Hub
+# 📚 The Hub
 
 **🌐 Live Site:** [https://fred-lim.github.io](https://fred-lim.github.io)
 
