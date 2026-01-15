@@ -1,0 +1,31 @@
+<!-- Textbook Navigation System -->
+<div class="textbook-navigation">
+    <!-- Main Subjects View -->
+    <div id="subjects-view" class="view active">
+        <h2 style="color: #e6edf3; margin-bottom: 20px;">Browse Textbook Solutions</h2>
+        <div class="button-grid">
+            <button class="subject-btn" data-subject="math">Mathematics</button>
+            <button class="subject-btn" data-subject="chemistry">Chemistry</button>
+            <button class="subject-btn" data-subject="physics">Physics</button>
+        </div>
+    </div>
+
+    <!-- Textbooks View -->
+    <div id="textbooks-view" class="view">
+        <button class="back-btn" data-back-to="subjects">← Back to Subjects</button>
+        <h2 id="current-subject"></h2>
+        <div class="button-grid" id="textbooks-container"></div>
+    </div>
+
+    <!-- Chapters View -->
+    <div id="chapters-view" class="view">
+        <button class="back-btn" data-back-to="textbooks">← Back to Textbooks</button>
+        <h2 id="current-textbook"></h2>
+        <div class="button-grid" id="chapters-container"></div>
+    </div>
+</div>
+
+<!-- Progress Indicators -->
+<div class="progress-indicators">
+    <p><small>Note: Items marked with (WIP) are Works in Progress</small></p>
+</div>
