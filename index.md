@@ -6,8 +6,6 @@ mathjax: true
 
 # The Hub
 
-Math test: $E = mc^2$
-
 <div class="textbook-navigation">
     <h2>Browse Textbook Solutions</h2>
     
@@ -40,7 +38,58 @@ Math test: $E = mc^2$
 </div>
 
 <script>
-// Simple navigation functions - NO ERRORS
+// Textbook data with custom chapter counts
+const textbooks = {
+    'math': {
+        title: 'Mathematics',
+        books: [
+            {
+                name: 'Multivariable Calculus (Stewart 9th Ed)',
+                hasChapters: true,
+                chapters: 7,  // ← Change this number for custom chapters
+                baseUrl: '/textbooks/stewart-multivariable-calculus-ninth-edition/chapter-'
+            },
+            {
+                name: 'Real Analysis (WIP)',
+                hasChapters: false,
+                chapters: 0,
+                baseUrl: ''
+            },
+            {
+                name: 'Linear Algebra (WIP)',
+                hasChapters: false,
+                chapters: 0,
+                baseUrl: ''
+            }
+        ]
+    },
+    'chem': {
+        title: 'Chemistry',
+        books: [
+            {
+                name: 'Coming soon - check back later!',
+                hasChapters: false,
+                chapters: 0,
+                baseUrl: ''
+            }
+        ]
+    },
+    'physics': {
+        title: 'Physics',
+        books: [
+            {
+                name: 'Coming soon - check back later!',
+                hasChapters: false,
+                chapters: 0,
+                baseUrl: ''
+            }
+        ]
+    }
+};
+
+// Global variables to track current book
+let currentSubject = '';
+let currentBook = null;
 
 function showSubjects() {
     document.getElementById('subjects-view').style.display = 'block';
@@ -49,82 +98,61 @@ function showSubjects() {
 }
 
 function showTextbooks(subject) {
+    currentSubject = subject;
+    const subjectData = textbooks[subject];
+    
     // Hide/show views
     document.getElementById('subjects-view').style.display = 'none';
     document.getElementById('textbooks-view').style.display = 'block';
     document.getElementById('chapters-view').style.display = 'none';
     
     // Set subject title
-    var titles = {
-        'math': 'Mathematics',
-        'chem': 'Chemistry', 
-        'physics': 'Physics'
-    };
-    document.getElementById('subject-title').textContent = titles[subject] || subject;
+    document.getElementById('subject-title').textContent = subjectData.title;
     
     // Clear and add textbooks
-    var list = document.getElementById('textbooks-list');
+    const list = document.getElementById('textbooks-list');
     list.innerHTML = '';
     
-    if (subject === 'math') {
-        // Math textbooks
-        var books = [
-            {name: 'Multivariable Calculus (Stewart 9th Ed)', hasChapters: true},
-            {name: 'Real Analysis (WIP)', hasChapters: false},
-            {name: 'Linear Algebra (WIP)', hasChapters: false}
-        ];
-        
-        books.forEach(function(book) {
-            var btn = document.createElement('button');
-            btn.className = 'nav-btn textbook-btn';
-            btn.textContent = book.name;
-            btn.onclick = function() {
-                if (book.hasChapters) {
-                    showChapters(book.name);
-                } else {
-                    alert('Coming soon!');
-                }
-            };
-            list.appendChild(btn);
-        });
-    } else {
-        // Other subjects - coming soon
-        var btn = document.createElement('button');
+    subjectData.books.forEach(function(book) {
+        const btn = document.createElement('button');
         btn.className = 'nav-btn textbook-btn';
-        btn.textContent = 'Coming soon - check back later!';
+        btn.textContent = book.name;
         btn.onclick = function() {
-            alert('This subject is still under development!');
+            currentBook = book;
+            if (book.hasChapters) {
+                showChapters();
+            } else {
+                alert('Coming soon!');
+            }
         };
         list.appendChild(btn);
-    }
+    });
 }
 
-function showChapters(bookName) {
+function showChapters() {
     // Hide/show views
     document.getElementById('textbooks-view').style.display = 'none';
     document.getElementById('chapters-view').style.display = 'block';
     
     // Set book title
-    document.getElementById('book-title').textContent = bookName;
+    document.getElementById('book-title').textContent = currentBook.name;
     
     // Clear and add chapters
-    var list = document.getElementById('chapters-list');
+    const list = document.getElementById('chapters-list');
     list.innerHTML = '';
     
-    // Add 5 chapters
-    for (var i = 1; i <= 5; i++) {
-        var btn = document.createElement('button');
+    // Create exactly the number of chapters specified
+    for (let i = 1; i <= currentBook.chapters; i++) {
+        const btn = document.createElement('button');
         btn.className = 'nav-btn chapter-btn';
         btn.textContent = 'Chapter ' + i;
         
-                btn.onclick = function() {
-            var chapterNum = this.textContent.replace('Chapter ', '');
-            
+        btn.onclick = function() {
             // OPEN ANY CHAPTER for Multivariable Calculus
-            if (bookName.includes('Multivariable Calculus')) {
-                window.location.href = '/textbooks/stewart-multivariable-calculus-ninth-edition/chapter-' + chapterNum + '.html';
+            if (currentBook.name.includes('Multivariable Calculus')) {
+                window.location.href = currentBook.baseUrl + i + '.html';
             } else {
-                alert('Chapter ' + chapterNum + ' coming soon!');
+                alert('Chapter ' + i + ' coming soon!');
             }
         };
         
