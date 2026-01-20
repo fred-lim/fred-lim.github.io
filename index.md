@@ -44,21 +44,63 @@ const textbooks = {
         title: 'Mathematics',
         books: [
             {
-                name: 'Multivariable Calculus (Stewart 9th Ed)',
+                name: 'Discrete Mathematics with Applications by Susanna Epp (5th Edition)',
                 hasChapters: true,
-                chapters: 7,  // ← Change this number for custom chapters
-                baseUrl: '/textbooks/stewart-multivariable-calculus-ninth-edition/chapter-'
-            },
-            {
-                name: 'Real Analysis (WIP)',
-                hasChapters: false,
-                chapters: 0,
+                chapters: 10,
                 baseUrl: ''
             },
             {
-                name: 'Linear Algebra (WIP)',
-                hasChapters: false,
-                chapters: 0,
+                name: 'Discrete Mathematics and Applications by Kenneth Rosen (8th Edition)',
+                hasChapters: true,
+                chapters: 10,
+                baseUrl: ''
+            },
+            {
+                name: 'A First Course in Probability by Sheldon Ross (10th Edition)',
+                hasChapters: true,
+                chapters: 8,
+                baseUrl: ''
+            },
+            {
+                name: 'Numerical Analysis by Richard Burden (9th Edition)',
+                hasChapters: true,
+                chapters: 7,
+                baseUrl: ''
+            },
+            {
+                name: 'Multivariable Calculus by James Stewart (9th Edition)',
+                hasChapters: true,
+                chapters: 5,  // ← Change this number for custom chapters
+                baseUrl: '/textbooks/stewart-multivariable-calculus/chapter-'
+            },
+            {
+                name: 'Principles of Mathematical Analysis by Walter Rudin (3rd Edition)',
+                hasChapters: true,
+                chapters: 7,
+                baseUrl: '/textbooks/rudin-real-analysis/chapter-'
+            },
+            {
+                name: 'Abstract Algebra by David Dummit and Richard Foote (3rd Edition)',
+                hasChapters: true,
+                chapters: 14,
+                baseUrl: '/textbooks/dummit-foote-abstract-algebra/chapter-'
+            },
+            {
+                name: 'A First Course in Abstract Algebra by John Fraleigh (8th Edition)',
+                hasChapters: true,
+                chapters: 9,
+                baseUrl: ''
+            },
+            {
+                name: 'Linear Algebra by John Fraleigh (3rd Edition)',
+                hasChapters: true,
+                chapters: 8,
+                baseUrl: ''
+            },
+            {
+                name: 'Linear Algebra by Stephen Friedberg (5th Edition)',
+                hasChapters: true,
+                chapters: 7,
                 baseUrl: ''
             }
         ]
@@ -147,10 +189,11 @@ function showChapters() {
         btn.className = 'nav-btn chapter-btn';
         btn.textContent = 'Chapter ' + i;
         
+        // OPTION 2 IMPLEMENTED HERE:
         btn.onclick = function() {
-            // OPEN ANY CHAPTER for Multivariable Calculus
-            if (currentBook.name.includes('Multivariable Calculus')) {
-                window.location.href = currentBook.baseUrl + i + '.html';
+            // Check if book has chapters AND a base URL
+            if (currentBook.hasChapters && currentBook.baseUrl) {
+                window.location.href = currentBook.baseUrl + i;
             } else {
                 alert('Chapter ' + i + ' coming soon!');
             }
