@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "Chapter 1 - Vectors and Geometry of Space"
+title: "Chapter 1 - Introduction to Groups"
 mathjax: true
 ---
 

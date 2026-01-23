@@ -70,8 +70,14 @@ const textbooks = {
             {
                 name: 'Multivariable Calculus by James Stewart (9th Edition)',
                 hasChapters: true,
-                chapters: 5,  // ← Change this number for custom chapters
+                chapters: 5,  
                 baseUrl: '/textbooks/stewart-multivariable-calculus/chapter-'
+            },
+            {
+                name: 'Introduction to Real Analysis by Richard Bartle and Donald Sherbert (4th Edition)',
+                hasChapters: true,
+                chapters: 11,  
+                baseUrl: '/textbooks/bs-real-analysis/chapter-'
             },
             {
                 name: 'Principles of Mathematical Analysis by Walter Rudin (3rd Edition)',
@@ -83,7 +89,7 @@ const textbooks = {
                 name: 'Abstract Algebra by David Dummit and Richard Foote (3rd Edition)',
                 hasChapters: true,
                 chapters: 14,
-                baseUrl: '/textbooks/dummit-foote-abstract-algebra/chapter-'
+                baseUrl: '/textbooks/df-abstract-algebra/chapter-'
             },
             {
                 name: 'A First Course in Abstract Algebra by John Fraleigh (8th Edition)',
@@ -120,10 +126,10 @@ const textbooks = {
         title: 'Physics',
         books: [
             {
-                name: 'Coming soon - check back later!',
-                hasChapters: false,
-                chapters: 0,
-                baseUrl: ''
+                name: 'Introduction to Quantum Mechanics by David Griffiths (3rd Edition)',
+                hasChapters: true,
+                chapters: 7,
+                baseUrl: '/textbooks/griffiths-quantum-mechanics/chapter-'
             }
         ]
     }
