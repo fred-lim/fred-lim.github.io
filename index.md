@@ -44,43 +44,14 @@ const textbooks = {
         title: 'Mathematics',
         books: [
             {
-                name: 'A First Course in Probability by Sheldon Ross (10th Edition)',
-                hasChapters: true,
-                chapters: [
-                    'Combinatorial Analysis',
-                    'Axioms of Probability',
-                    'Conditional Probability and Independence',
-                    'Random Variables',
-                    'Continuous Random Variables',
-                    'Jointly Distributed Random Variables',
-                    'Properties of Expectation',
-                    'Limit Theorems'
-                ],
-                baseUrl: ''
-            },
-            {
-                name: 'Numerical Analysis by Richard Burden (9th Edition)',
-                hasChapters: true,
-                chapters: [
-                    'Mathematical Preliminaries',
-                    'Solutions of Equations in One Variable',
-                    'Interpolation and Polynomial Approximation',
-                    'Numerical Differentiation and Integration',
-                    'Initial-Value Problems for Ordinary Differential Equations',
-                    'Direct Methods for Solving Linear Systems',
-                    'Iterative Techniques in Matrix Algebra'
-                ],
-                baseUrl: ''
-            },
-            {
                 name: 'Multivariable Calculus by James Stewart (9th Edition)',
                 hasChapters: true,
                 chapters: [
-                    'Parametric Equations and Polar Coordinates',
-                    'Infinite Sequences and Series',
-                    'Vectors and the Geometry of Space',
+                    'Vectors and Geometry of Space',
                     'Vector Functions',
-                    'Partial Derivatives'
+                    'Partial Derivatives',
+                    'Multiple Integrals',
+                    'Vector Calculus'
                 ],
                 baseUrl: '/textbooks/stewart-multivariable-calculus/chapter-'
             },
@@ -88,8 +59,7 @@ const textbooks = {
                 name: 'Introduction to Real Analysis by Richard Bartle and Donald Sherbert (4th Edition)',
                 hasChapters: true,
                 chapters: [
-                    'Preliminaries',
-                    'The Real Numbers',
+                    'Real Numbers',
                     'Sequences and Series',
                     'Limits',
                     'Continuous Functions',
@@ -97,8 +67,8 @@ const textbooks = {
                     'The Riemann Integral',
                     'Sequences of Functions',
                     'Infinite Series',
-                    'The Generalized Riemann Integral',
-                    'A Glimpse into Topology'
+                    'Generalized Riemann Integral',
+                    'Glimpse into Topology'
                 ],
                 baseUrl: '/textbooks/bs-real-analysis/chapter-'
             },
@@ -106,16 +76,17 @@ const textbooks = {
                 name: 'Principles of Mathematical Analysis by Walter Rudin (3rd Edition)',
                 hasChapters: true,
                 chapters: [
-                    'The Real and Complex Number Systems',
+                    'Real and Complex Number Systems',
                     'Basic Topology',
                     'Numerical Sequences and Series',
                     'Continuity',
                     'Differentiation',
-                    'The Riemann-Stieltjes Integral',
+                    'Riemann-Stieltjes Integral',
                     'Sequences and Series of Functions',
                     'Some Special Functions',
                     'Functions of Several Variables',
-                    'Integration of Differential Forms'
+                    'Integration of Differential Forms',
+                    'Lebesgue Theory'
                 ],
                 baseUrl: '/textbooks/rudin-real-analysis/chapter-'
             },
@@ -131,12 +102,7 @@ const textbooks = {
                     'Further Topics in Group Theory',
                     'Introduction to Rings',
                     'Euclidean Domains, Principal Ideal Domains and Unique Factorization Domains',
-                    'Polynomial Rings',
-                    'Introduction to Module Theory',
-                    'Vector Spaces',
-                    'Modules over Principal Ideal Domains',
-                    'Field Theory',
-                    'Galois Theory'
+                    'Polynomial Rings'
                 ],
                 baseUrl: '/textbooks/df-abstract-algebra/chapter-'
             },
@@ -145,14 +111,14 @@ const textbooks = {
                 hasChapters: true,
                 chapters: [
                     'Groups and Subgroups',
-                    'Permutations, Cosets, and Direct Products',
+                    'Structure of Groups',
                     'Homomorphisms and Factor Groups',
-                    'Rings and Fields',
-                    'Ideals and Factor Rings',
-                    'Extension Fields',
                     'Advanced Group Theory',
-                    'Groups in Topology',
-                    'Factorization'
+                    'Rings and Fields',
+                    'Constructing Rings and Fields',
+                    'Commutative Algebra',
+                    'Extension Fields',
+                    'Galois Theory'
                 ],
                 baseUrl: ''
             },
@@ -160,14 +126,16 @@ const textbooks = {
                 name: 'Linear Algebra by John Fraleigh (3rd Edition)',
                 hasChapters: true,
                 chapters: [
+                    'Vectors, Matrices, and Linear Systems',
+                    'Dimension, Rank, and Linear Transformations',
                     'Vector Spaces',
-                    'Linear Transformations',
-                    'Matrices',
                     'Determinants',
-                    'Diagonalization',
-                    'Inner Product Spaces',
-                    'Canonical Forms',
-                    'Applications'
+                    'Eigenavlues and Eigenvectors',
+                    'Orthogonality',
+                    'Change of Basis',
+                    'Futher Applications and Computations of Eigenvalues',
+                    'Complex Scalars',
+                    'Solving Large Linear Systems'
                 ],
                 baseUrl: ''
             },
@@ -184,7 +152,25 @@ const textbooks = {
                     'Canonical Forms'
                 ],
                 baseUrl: ''
-            }
+            },
+            {
+                name: 'Numerical Analysis by Richard Burden (9th Edition)',
+                hasChapters: true,
+                chapters: [
+                    'Mathematical Preliminaries and Error Analysis',
+                    'Solutions of Equations in One Variable',
+                    'Interpolation and Polynomial Approximation',
+                    'Numerical Differentiation and Integration',
+                    'Initial-Value Problems for Ordinary Differential Equations',
+                    'Direct Methods for Solving Linear Systems',
+                    'Iterative Techniques in Matrix Algebra',
+                    'Approximation Theory',
+                    'Approximating Eigenvalues',
+                    'Numerical Solutions of Nonlinear Systems of Equations',
+                    'Boundary-Value Problems for Ordinary Different Equations'
+                ],
+                baseUrl: ''
+            },
         ]
     },
     'chem': {
@@ -205,13 +191,13 @@ const textbooks = {
                 name: 'Introduction to Quantum Mechanics by David Griffiths (3rd Edition)',
                 hasChapters: true,
                 chapters: [
-                    'The Wave Function',
+                    'Wave Function',
                     'Time-Independent Schrödinger Equation',
                     'Formalism',
                     'Quantum Mechanics in Three Dimensions',
                     'Identical Particles',
                     'Time-Independent Perturbation Theory',
-                    'The Variational Principle'
+                    'Variational Principle'
                 ],
                 baseUrl: '/textbooks/griffiths-quantum-mechanics/chapter-'
             }
